@@ -7,7 +7,8 @@
 
 import pickle
 import streamlit as st
-import os
+import pandas as pd
+import emoji
 
 # Load models
 diabetes_model = pickle.load(open('diabetes_model.sav', 'rb'))
@@ -25,7 +26,7 @@ st.set_page_config(
 with st.sidebar:
     selected = st.selectbox(
         'PREDICTION MENU:',
-        ['Diabetes Prediction 🩸', 'Heart Disease Prediction ❤', "Parkinson's Prediction 🧠"]
+        ['Diabetes Prediction 🩸', 'Heart Disease Prediction ❤️', "Parkinson's Prediction 🧠"]
     )
 
 # Heading for Multiple Disease Prediction System
@@ -33,12 +34,12 @@ st.title("MULTIPLE DISEASE PREDICTION SYSTEM")
 
 # Emojis for each prediction category
 st.write(
-    f"🩸 Diabetes Prediction  {'  ' if selected == 'Diabetes Prediction 🩸' else ''}",
-    f"❤ Heart Disease Prediction  {'  ' if selected == 'Heart Disease Prediction ❤' else ''}",
-    f"🧠 Parkinson's Prediction  {'  ' if selected == 'Parkinsons Prediction 🧠' else ''}"
+    f"🩸 *Diabetes Prediction*  {'  ' if selected == 'Diabetes Prediction 🩸' else ''}",
+    f"❤️ *Heart Disease Prediction*  {'  ' if selected == 'Heart Disease Prediction ❤️' else ''}",
+    f"🧠 *Parkinson's Prediction*  {'  ' if selected == 'Parkinsons Prediction 🧠' else ''}"
 )
 
-# Code for Prediction and Audio
+# Diabetes Prediction Page
 if selected == 'Diabetes Prediction 🩸':
     st.title('🩸 Diabetes Prediction using ML 🩸')
 
@@ -54,15 +55,9 @@ if selected == 'Diabetes Prediction 🩸':
         result = 'The person is diabetic 😢' if diab_prediction[0] == 1 else 'The person is not diabetic 🤩'
         st.success(result)
 
-        if diab_prediction[0] == 0:
-            file = "healthy_audio.mp3"
-            os.system("start " + file)
-        else:
-            file = "unhealthy_audio.mp3"
-            os.system("start " + file)
 # Heart Disease Prediction Page
-elif selected == 'Heart Disease Prediction ❤':
-    st.title('❤ Heart Disease Prediction using ML ❤')
+elif selected == 'Heart Disease Prediction ❤️':
+    st.title('❤️ Heart Disease Prediction using ML ❤️')
 
     # Getting input data from the user
     features = ['Age', 'Sex', 'Chest Pain Types', 'Resting Blood Pressure', 'Serum Cholestoral',
@@ -79,15 +74,6 @@ elif selected == 'Heart Disease Prediction ❤':
         result = 'The person has heart disease 😢' if heart_prediction[
                                                        0] == 1 else 'The person does not have heart disease 🤩'
         st.success(result)
-
-        # Play audio if the person does not have heart disease
-        if heart_prediction[0] == 0:
-            file = "healthy_audio.mp3"
-            os.system("start " + file)
-        else:
-            file = "unhealthy_audio.mp3"
-            os.system("start " + file)
-
 
 # Parkinson's Prediction Page
 elif selected == "Parkinson's Prediction 🧠":
@@ -107,10 +93,3 @@ elif selected == "Parkinson's Prediction 🧠":
         result = "The person has Parkinson's disease 😢" if parkinsons_prediction[
                                                              0] == 1 else "The person does not have Parkinson's disease 🤩"
         st.success(result)
-
-        if parkinsons_prediction[0] == 0:
-            file = "healthy_audio.mp3"
-            os.system("start " + file)
-        else:
-            file = "unhealthy_audio.mp3"
-            os.system("start " + file)
