@@ -93,3 +93,5 @@ elif selected == "Parkinson's Prediction 🧠":
         result = "The person has Parkinson's disease 😢" if parkinsons_prediction[
                                                              0] == 1 else "The person does not have Parkinson's disease 🤩"
         st.success(result)
+
+st.text("Created by YELKAMPATI REDDY UDAY - October 5th, 2023")
