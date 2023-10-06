@@ -29,6 +29,8 @@ with st.sidebar:
         ['Diabetes Prediction 🩸', 'Heart Disease Prediction ❤️', "Parkinson's Prediction 🧠"]
     )
 
+    st.text("Created by YELKAMPATI REDDY UDAY - October 5th, 2023")
+
 # Heading for Multiple Disease Prediction System
 st.title("MULTIPLE DISEASE PREDICTION SYSTEM")
 
@@ -93,5 +95,3 @@ elif selected == "Parkinson's Prediction 🧠":
         result = "The person has Parkinson's disease 😢" if parkinsons_prediction[
                                                              0] == 1 else "The person does not have Parkinson's disease 🤩"
         st.success(result)
-
-st.text("Created by YELKAMPATI REDDY UDAY - October 5th, 2023")
