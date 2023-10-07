@@ -14,10 +14,11 @@ import emoji
 diabetes_model = pickle.load(open('diabetes_model.sav', 'rb'))
 heart_disease_model = pickle.load(open('heart_disease_model.sav', 'rb'))
 parkinsons_model = pickle.load(open('parkinsons_model.sav', 'rb'))
+Breast_cancer_model = pickle.load(open('Breast_cancer_model.sav', 'rb'))
 
 # Set up page configuration
 st.set_page_config(
-    page_title="Multiple Disease Prediction System",
+    page_title="Multiple Disease Predictive AI Hospital",
     page_icon="💉",
     layout="wide"
 )
@@ -26,18 +27,17 @@ st.set_page_config(
 with st.sidebar:
     selected = st.selectbox(
         'PREDICTION MENU:',
-        ['Diabetes Prediction 🩸', 'Heart Disease Prediction ❤️', "Parkinson's Prediction 🧠"]
+        ['Diabetes Prediction 🩸', 'Heart Disease Prediction ❤️',"Breast Cancer Prediction 😷", "Parkinson's Prediction 🧠"]
     )
 
-    st.text("Created by YELKAMPATI REDDY UDAY - October 5th, 2023")
-
 # Heading for Multiple Disease Prediction System
-st.title("MULTIPLE DISEASE PREDICTION SYSTEM")
+st.title("MULTIPLE DISEASE PREDICTIVE-AI HOSPITAL")
 
 # Emojis for each prediction category
 st.write(
     f"🩸 *Diabetes Prediction*  {'  ' if selected == 'Diabetes Prediction 🩸' else ''}",
     f"❤️ *Heart Disease Prediction*  {'  ' if selected == 'Heart Disease Prediction ❤️' else ''}",
+    f"😷 *Breast Cancer Prediction*  {'  ' if selected == 'Breast Cancer Prediction 😷' else ''}",
     f"🧠 *Parkinson's Prediction*  {'  ' if selected == 'Parkinsons Prediction 🧠' else ''}"
 )
 
@@ -52,7 +52,7 @@ if selected == 'Diabetes Prediction 🩸':
     user_input = [st.text_input(f'{feature}:') for feature in features]
 
     # Code for Prediction
-    if st.button('Diabetes Test Result'):
+    if st.button('Diabetes Test Result 🤞🏼'):
         diab_prediction = diabetes_model.predict([user_input])
         result = 'The person is diabetic 😢' if diab_prediction[0] == 1 else 'The person is not diabetic 🤩'
         st.success(result)
@@ -71,10 +71,26 @@ elif selected == 'Heart Disease Prediction ❤️':
     user_input = [float(value) if value.strip() != '' else 0.0 for value in user_input]
 
     # Code for Prediction
-    if st.button('Heart Disease Test Result'):
+    if st.button('Heart Disease Test Result 🤞🏼'):
         heart_prediction = heart_disease_model.predict([user_input])
         result = 'The person has heart disease 😢' if heart_prediction[
                                                        0] == 1 else 'The person does not have heart disease 🤩'
+        st.success(result)
+
+# Breast Cancer Prediction Page
+elif selected == "Breast Cancer Prediction 😷":
+    st.title("😷 Breast Cancer Prediction Prediction using ML 😷")
+
+    # Getting input data from the user
+    features = ['Mean Radius','Mean Texture','Mean Perimeter','Mean Area','Mean Smoothness']
+
+    user_input = [st.text_input(f'{feature}:') for feature in features]
+
+    # Code for Prediction
+    if st.button("Check Test Result 🤞🏼"):
+        Breast_cancer_prediction = Breast_cancer_model.predict([user_input])
+        result = "The person has Breast Cancer 😢" if Breast_cancer_prediction[
+                                                             0] == 1 else "The person does not have Breast Cancer 🤩"
         st.success(result)
 
 # Parkinson's Prediction Page
@@ -90,7 +106,7 @@ elif selected == "Parkinson's Prediction 🧠":
     user_input = [st.text_input(f'{feature}:') for feature in features]
 
     # Code for Prediction
-    if st.button("Parkinson's Test Result"):
+    if st.button("Parkinson's Test Result 🤞🏼"):
         parkinsons_prediction = parkinsons_model.predict([user_input])
         result = "The person has Parkinson's disease 😢" if parkinsons_prediction[
                                                              0] == 1 else "The person does not have Parkinson's disease 🤩"
