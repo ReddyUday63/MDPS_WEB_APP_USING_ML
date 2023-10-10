@@ -59,6 +59,7 @@ if selected == 'Diabetes Prediction 🩸':
 
 # Heart Disease Prediction Page
 elif selected == 'Heart Disease Prediction ❤️':
+    st.write('<div id="heart_disease_prediction"></div>', unsafe_allow_html=True)
     st.title('❤️ Heart Disease Prediction using ML ❤️')
 
     # Getting input data from the user
