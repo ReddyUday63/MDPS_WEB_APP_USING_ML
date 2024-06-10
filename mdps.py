@@ -27,7 +27,7 @@ st.set_page_config(
 with st.sidebar:
     selected = st.selectbox(
         'PREDICTION MENU:',
-        ['Diabetes Predtion 🩸', 'Heart Disease Prediction ❤️',"Breast Cancer Prediction 😷", "Parkinson's Prediction 🧠"]
+        ['Diabetes Prediction 🩸', 'Heart Disease Prediction ❤️',"Breast Cancer Prediction 😷", "Parkinson's Prediction 🧠"]
     )
 
 # Heading for Multiple Disease Prediction System
