@@ -50,6 +50,7 @@ if selected == 'Diabetes Prediction 🩸':
                 'Diabetes Pedigree Function', 'Age']
 
     user_input = [st.text_input(f'{feature}:') for feature in features]
+    user_input = [float(value) if value.strip() != '' else 0.0 for value in user_input]
 
     # Code for Prediction
     if st.button('Diabetes Test Result 🤞🏼'):
@@ -86,6 +87,7 @@ elif selected == "Breast Cancer Prediction 😷":
     features = ['Mean Radius','Mean Texture','Mean Perimeter','Mean Area','Mean Smoothness']
 
     user_input = [st.text_input(f'{feature}:') for feature in features]
+    user_input = [float(value) if value.strip() != '' else 0.0 for value in user_input]
 
     # Code for Prediction
     if st.button("Check Test Result 🤞🏼"):
@@ -105,6 +107,7 @@ elif selected == "Parkinson's Prediction 🧠":
                 'RPDE', 'DFA', 'spread1', 'spread2', 'D2', 'PPE']
 
     user_input = [st.text_input(f'{feature}:') for feature in features]
+    user_input = [float(value) if value.strip() != '' else 0.0 for value in user_input]
 
     # Code for Prediction
     if st.button("Parkinson's Test Result 🤞🏼"):
