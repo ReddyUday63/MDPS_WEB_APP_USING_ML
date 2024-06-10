@@ -112,6 +112,5 @@ elif selected == "Parkinson's Prediction 🧠":
     # Code for Prediction
     if st.button("Parkinson's Test Result 🤞🏼"):
         parkinsons_prediction = parkinsons_model.predict([user_input])
-        result = "The person has Parkinson's disease 😢" if parkinsons_prediction[
-                                                             0] == 1 else "The person does not have Parkinson's disease 🤩"
+        result = "The person has Parkinson's disease 😢" if parkinsons_prediction[0] == 1 else "The person does not have Parkinson's disease 🤩"
         st.success(result)
