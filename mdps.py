@@ -18,7 +18,7 @@ Breast_cancer_model = pickle.load(open('Breast_cancer_model.sav', 'rb'))
 
 # Set up page configuration
 st.set_page_config(
-    page_title="Multiple Disease Predictive AI Hospital",
+    page_title="medXpert💉",
     page_icon="💉",
     layout="wide"
 )
@@ -31,7 +31,7 @@ with st.sidebar:
     )
 
 # Heading for Multiple Disease Prediction System
-st.title("MULTIPLE DISEASE PREDICTIVE-AI HOSPITAL")
+st.title("MULTIPLE DISEASE PREDICTIVE-medXpert 💉")
 
 # Emojis for each prediction category
 st.write(
