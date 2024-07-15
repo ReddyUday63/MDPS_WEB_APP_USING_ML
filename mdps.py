@@ -31,7 +31,7 @@ with st.sidebar:
     )
 
 # Heading for Multiple Disease Prediction System
-st.title("MULTIPLE DISEASE PREDICTIVE-medXpert 💉")
+st.title("MULTIPLE DISEASE PREDICTION SYSTEM - medXpert 💉")
 
 # Emojis for each prediction category
 st.write(
